@@ -1,0 +1,40 @@
+.wrap {
+  animation: fadeUp 0.22s ease both;
+  max-width: 860px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.72;
+  padding: 12px 14px;
+  resize: vertical;
+  min-height: 96px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.textarea:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
