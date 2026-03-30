@@ -69,6 +69,9 @@ support-tools/
 
 | 変数名 | 必須 | 説明 |
 |---|---|---|
+| `COMPANY_NAME | x | your_company_name_here |
+| `MY_NAME` | x | your_name_here |
+| `ENGINEER_NAME | x | your_signature_here |
 | `RAPIDAPI_KEY` | ✓ | OneCompiler API キー (`/api/generateSessionId` で使用) |
 
 ## テクノロジースタック
