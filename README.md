@@ -76,7 +76,7 @@ support-tools/
 
 ## テクノロジースタック
 
-- **Next.js 15** (App Router)
+- **Next.js 16** (App Router)
 - **TypeScript**
 - **CSS Modules** (外部UIライブラリ不使用)
 - **Monaco Editor** (`@monaco-editor/react`) — SQL エディタ
