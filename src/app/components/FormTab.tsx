@@ -17,7 +17,7 @@ const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
 type FormData = {
   clientBaseUrl: string;
   description:   string;
-  ticketId:     string;
+  TicketId:     string;
   SessionId:      string;
   outputFile:    string;
   sqlScript:     string;
@@ -28,7 +28,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const INITIAL: FormData = {
   clientBaseUrl: "",
   description:   "",
-  ticketId:     "",
+  TicketId:     "",
   SessionId:      "",
   outputFile:    "",
   sqlScript:     "",
@@ -38,8 +38,8 @@ function validate(d: FormData): FormErrors {
   const e: FormErrors = {};
   if (!d.clientBaseUrl)
     e.clientBaseUrl = "クライアント環境 URL を入力してください、例：https://<client>.your_app.com/";
-  if (!/^\d+$/.test(d.ticketId))
-    e.ticketId = "数字のみで入力してください";
+  if (!/^\d+$/.test(d.TicketId))
+    e.TicketId = "数字のみで入力してください";
   if (!d.SessionId.trim())
     e.SessionId = "セッション ID を入力してください";
   if (!d.outputFile.trim())
@@ -102,7 +102,7 @@ export default function FormTab() {
           const url  = URL.createObjectURL(blob);
           const a    = Object.assign(document.createElement("a"), {
             href:     url,
-            download: `${form.ticketId}_${form.outputFile}.sql`,
+            download: `${form.TicketId}_${form.outputFile}.sql`,
           });
           document.body.appendChild(a);
           a.click();
@@ -153,12 +153,12 @@ export default function FormTab() {
                 <Field
                   label="Ticket ID"
                   required
-                  error={errors.ticketId}
+                  error={errors.TicketId}
                 >
                   <input
                     className={styles.input}
-                    value={form.ticketId}
-                    onChange={set("ticketId")}
+                    value={form.TicketId}
+                    onChange={set("TicketId")}
                     placeholder="123456"
                   />
                 </Field>

@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export async function POST(req: NextRequest) {
-  const { clientBaseUrl, description, TikcetId, SessionId, outputFile, sqlScript } =
+  const { clientBaseUrl, description, TicketId, SessionId, outputFile, sqlScript } =
     await req.json();
 
   try {
@@ -13,12 +13,14 @@ export async function POST(req: NextRequest) {
 
     /* Split and reassemble */
     const [head, tail]   = tempCont.split("-- mid");
-    const [head1, head2] = head.split("-- Set @Description, @TikcetId, @SessionId");
+    const [head1, head2] = head.split("-- Set @Description, @TicketId, @SessionId");
 
-    const headParams = `SET @ClientBaseURL = '${clientBaseUrl}'
+    const headParams = `
+SET @ClientBaseURL = '${clientBaseUrl}'
 SET @Description  = '${description}'
-SET @TikcetId     = '${TikcetId}'
-SET @SessionId    = '${SessionId}'`;
+SET @TicketId     = '${TicketId}'
+SET @SessionId    = '${SessionId}'
+`;
 
     const script = head1 + headParams + head2 + sqlScript + tail;
 
