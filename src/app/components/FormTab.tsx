@@ -151,7 +151,7 @@ export default function FormTab() {
 
               <div className={styles.twoCol}>
                 <Field
-                  label="Zendesk Ticket ID"
+                  label="Ticket ID"
                   required
                   error={errors.ticketId}
                 >
