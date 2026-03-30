@@ -18,7 +18,7 @@ type FormData = {
   clientBaseUrl: string;
   description:   string;
   ticketId:     string;
-  sessionId:      string;
+  SessionId:      string;
   outputFile:    string;
   sqlScript:     string;
 };
@@ -29,7 +29,7 @@ const INITIAL: FormData = {
   clientBaseUrl: "",
   description:   "",
   ticketId:     "",
-  sessionId:      "",
+  SessionId:      "",
   outputFile:    "",
   sqlScript:     "",
 };
@@ -40,8 +40,8 @@ function validate(d: FormData): FormErrors {
     e.clientBaseUrl = "クライアント環境 URL を入力してください、例：https://<client>.your_app.com/";
   if (!/^\d+$/.test(d.ticketId))
     e.ticketId = "数字のみで入力してください";
-  if (!d.sessionId.trim())
-    e.sessionId = "セッション ID を入力してください";
+  if (!d.SessionId.trim())
+    e.SessionId = "セッション ID を入力してください";
   if (!d.outputFile.trim())
     e.outputFile = "Output File Name を入力してください";
   if (!d.sqlScript.trim())
@@ -69,10 +69,10 @@ export default function FormTab() {
 
   const handleGetId = useCallback(async () => {
     try {
-      const res  = await fetch("/api/generatesessionId", { method: "POST" });
+      const res  = await fetch("/api/generateSessionId", { method: "POST" });
       const data = await res.json();
       if (res.ok) {
-        setForm((prev) => ({ ...prev, sessionId: data.sessionId }));
+        setForm((prev) => ({ ...prev, SessionId: data.SessionId }));
       } else {
         alert("セッション ID の生成に失敗しました");
       }
@@ -163,12 +163,12 @@ export default function FormTab() {
                   />
                 </Field>
 
-                <Field label="Session ID" required error={errors.sessionId}>
+                <Field label="Session ID" required error={errors.SessionId}>
                   <div className={styles.idRow}>
                     <input
                       className={styles.input}
-                      value={form.sessionId}
-                      onChange={set("sessionId")}
+                      value={form.SessionId}
+                      onChange={set("SessionId")}
                       placeholder="Auto or manual"
                       style={{ flex: 1, width: "auto" }}
                     />
