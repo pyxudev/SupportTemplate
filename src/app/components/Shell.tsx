@@ -20,14 +20,14 @@ export default function Shell() {
   return (
     <div className={styles.shell}>
       {/* Top Bar */}
-      <header className={styles.topbar}>
+      {/* <header className={styles.topbar}>
         <div className={styles.logo}>
           <span className={styles.logoDot} />
           Support Tools
         </div>
         <div className={styles.topbarSep} />
         <span className={styles.topbarMeta}>v2.0 · Internal</span>
-      </header>
+      </header> */}
 
       {/* Tab Nav */}
       <nav className={styles.tabNav}>
